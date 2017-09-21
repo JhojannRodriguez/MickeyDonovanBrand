@@ -1,2 +1,2 @@
 # MickeyDonovanBrand
-Mickey DOnovan is brand based on a character.
+Mickey Donovan is brand based on a character.
