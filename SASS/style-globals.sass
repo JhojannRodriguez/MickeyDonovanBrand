@@ -1,0 +1,222 @@
+//Colors//
+$purple : #8138FF
+$white : #FFF
+$green: #8AE0FC
+//ALl//
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+  font-family: sans-serif
+  border-image-width: 0
+  webkit-mask-box-image-width: 0A  ZXC
+
+//Colors Add//
+.purple-background
+  background-color: $purple
+
+.white-background
+  background-color: $white
+
+.green-color
+  color: $green
+  font-weight: 600
+//Navigator//
+.navigator
+  width: 100%
+  height: 60px
+  z-index: 999
+
+.navigator-static
+  position: relative
+
+.navigator-sticky
+  position: sticky
+  top: 0
+  left: 0
+  animation: appearNav 1s 1
+
+
+.navigator__containerlogo
+  display: inline-block
+  width: 30px
+  max-height: 40px
+  margin-top: 10px
+  margin-left: 10%
+  // vertical-align: middle
+
+
+.navigator__logo
+  height: 40px
+
+.reponsive-button
+  width: 40px
+  height: 4px
+  position: absolute
+  top: 27px
+  right: 10%
+  background-color: $white
+  border: 0
+  border-radius: 15px
+  &::before ,
+  &::after
+    content: ""
+    left: 0
+    top: 0
+    position: absolute
+    width: 100%
+    height: 4px
+    background-color: $white
+    border-radius: 15px
+  &::before
+    top: 10px
+  &::after
+    top: -10px
+
+
+.navigator__containerbottons
+  position: absolute
+  top: 15px
+  right: 10%
+  display: inline-block
+  line-height: 30px
+  list-style: none
+
+.navigator__button
+  position: relative
+  display: inline-block
+  margin: 0 20px
+  color: $white
+  font-weight: 600
+  text-align: center
+  cursor: pointer
+  &::before
+    content: ""
+    position: absolute
+    bottom: 2px
+    left: 50%
+    transform: translateX(-50%)
+    height: 2px
+    width: 0
+    border-radius: 20px
+    background-color: $white
+    transition: .5s
+  &:hover
+    color: $green
+    &::before
+      background-color: $green
+      width: 100%
+
+.navigator__button-activated
+  color: $green
+  &::before
+    width: 100%
+    background-color: $green
+
+//Section Global//
+section
+  width: 100%
+  position: relative
+
+//Style Each Section//
+
+.firstsection
+  color: $white
+
+.secondsection
+  background-image: url("../images/bendMickey.png")
+  background-repeat: no-repeat
+  background-position: 10% center
+  background-size: 40%
+
+.secondsection__title
+  font-size: 2em
+  font-weight: normal
+
+.descriptionMickey
+  font-size: 1.2em
+  line-height: 2em
+
+.row
+  text-align: center
+//AppearObjects//
+.overlay_containerImage
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.8)
+  z-index: 999
+  animation: appearOverlay 1s 1
+  display: none
+
+.containerImageAppear
+  background-color: $purple
+  position: relative
+  top: 50%
+  transform: translateY(-50%)
+  display: block
+  margin: auto
+  border-radius: 8px
+
+.imageOnContainer
+  display: block
+  margin: auto
+  padding-top: 40px
+
+.animation-title
+  display: block
+  margin: 30px auto
+  padding-bottom: 30px
+  color: $white
+
+.close-button
+  position: absolute
+  top: -20px
+  right: -20px
+  height: 40px
+  width: 40px
+  transition: 2s
+
+//Add animation//
+.text-bounceAnimation
+  animation: bounceAnimation 2s infinite
+
+//Set Animations//
+
+@keyframes appearNav
+  0%
+    top: -70px
+  100%
+    top: 0
+
+@keyframes bounceAnimation
+  0%
+    transform: translateY(0)
+  30%
+    transform: translateY(-5px)
+  50%
+    transform: translateY(0)
+
+
+@keyframes appearOverlay
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+
+@keyframes animationimageContainer
+  0%
+    transform: scale(0)
+    border-radius: 100%
+  80%
+    transform: scale(1)
+  100%
+    border-radius: 8px
+
+//Fonts//
+@font-face
+  font-family: 'MyWebFont'
+  src: url('../fonts/flow-circular.woff') format('woff')
