@@ -3,8 +3,12 @@
 let navigatorBar = document.getElementById('navigator'),
     sectionChange = document.getElementById('presentation'),
     greenText = document.getElementsByClassName('green-color'),
+    allSections = document.getElementsByTagName('section'),
     motions = document.getElementById('e-motion'),
-    overlay = document.getElementsByClassName('overlay_containerImage')[0];
+    overlay = document.getElementsByClassName('overlay_containerImage')[0],
+    closeButton = document.getElementsByClassName('close-button')[0],
+    menuResponsive = document.getElementById('responsiveButton'),
+    menuContainer = document.getElementsByClassName('navigator__containerbottons')[0];
 
 /*FUNCTIONS*/
 
@@ -33,6 +37,8 @@ let changeNav = (nav, elementLimitChange, putClass, reClass) => {
   }
 };
 
+//executuions//
+
 navigatorBar.addEventListener('click', (e) => {
   [...allSections].map( i => {
     if(e.target.textContent.toUpperCase() === i.id.toUpperCase() && e.target.nodeName === "LI"){
@@ -59,3 +65,24 @@ motions.addEventListener('click' , e => {
 
   }
 })
+
+
+menuResponsive.addEventListener('click' , () => {
+  if(menuContainer.classList.contains('navigator-hidden')){
+    menuContainer.classList.remove('navigator-hidden');
+    menuContainer.classList.add('navigator-show')
+  }else{
+    menuContainer.classList.remove('navigator-show');
+    menuContainer.classList.add('navigator-hidden')
+  }
+
+});
+
+overlay.addEventListener('click' , (e) => {
+  e.preventDefault();
+  overlay.style.display = "none";
+});
+
+closeButton.addEventListener('click' , () => {
+  overlay.style.display = "none";
+});

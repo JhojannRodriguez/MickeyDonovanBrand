@@ -6,6 +6,29 @@ $green: #8AE0FC
   .reponsive-button
     display: block
 
+  .iconMenu
+    width: 100%
+    height: 5px
+    position: absolute
+    top: 17px
+    background-color: $white
+    border: 0
+    border-radius: 15px
+    &::before ,
+    &::after
+      content: ""
+      left: 0
+      top: 0
+      position: absolute
+      width: 100%
+      height: 5px
+      background-color: $white
+      border-radius: 15px
+    &::before
+      top: 10px
+    &::after
+      top: -10px
+
   .navigator__containerbottons
     position: absolute
     top: 56px
@@ -15,6 +38,12 @@ $green: #8AE0FC
     display: inline-block
     z-index: -999
     border-radius: 0 0 0 8px
+
+  .navigator-hidden
+    display: none
+
+  .navigator-show
+    display: block
 
   .navigator__button
     display: block
