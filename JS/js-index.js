@@ -6,14 +6,15 @@ let navigatorBar = document.getElementById('navigator'),
     allSections = document.getElementsByTagName('section'),
     motions = document.getElementById('e-motion'),
     overlay = document.getElementsByClassName('overlay_containerImage')[0],
-    closeButton = document.getElementsByClassName('close-button')[0],
     menuResponsive = document.getElementById('responsiveButton'),
-    menuContainer = document.getElementsByClassName('navigator__containerbottons')[0];
-
+    menuContainer = document.getElementsByClassName('navigator__containerbottons')[0],
+    motionsImages = motions.getElementsByTagName('img');
 /*FUNCTIONS*/
-
+console.log(motionsImages )
 let animationLetters = ( elements , createEl , animationClass , delay ) =>{
 	let delayCounter = delay;
+  let a;
+  let i;
 	for( a = 0 ; a < elements.length ; a++){
 		let cutElement = elements[a].textContent.split("");
 		elements[a].firstChild.remove()
@@ -28,7 +29,6 @@ let animationLetters = ( elements , createEl , animationClass , delay ) =>{
 	}
 }
 
-
 let changeNav = (nav, elementLimitChange, putClass, reClass) => {
   if( window.scrollY > elementLimitChange.offsetTop - nav.clientHeight ){
     nav.classList.remove(reClass);nav.classList.add(putClass);
@@ -37,6 +37,13 @@ let changeNav = (nav, elementLimitChange, putClass, reClass) => {
   }
 };
 
+let loadPosImg = (images) => {
+  [...images].map( i => {
+    if( window.scrollY + (window.innerHeight * 1.5) > i.y && i.hasAttribute('src') === false){
+      i.setAttribute('src', `IMAGES/Statics/Face Static ${i.alt}.png`);
+    }
+  })
+}
 //executuions//
 
 navigatorBar.addEventListener('click', (e) => {
@@ -56,13 +63,15 @@ window.addEventListener('load', () => {
 
 window.addEventListener('scroll' , () =>{
   changeNav(navigatorBar,sectionChange,'navigator-sticky','navigator-static');
+  loadPosImg(motionsImages);
 });
 
 motions.addEventListener('click' , e => {
-  if ( e.target.nodeName === "IMG" ) {
-    overlay.getElementsByTagName('img')[0].setAttribute('src' , `../IMAGES/Animations/Face Animation ${e.target.alt}.gif`);
-    overlay.style.display = "block"
-
+  if ( e.target.nodeName === "IMG" && e.target.parentElement.classList.contains("row")) {
+    let h3 = document.getElementsByClassName('animation-title')[0];
+    overlay.getElementsByTagName('img')[0].setAttribute('src' , `IMAGES/Animations/Face Animation ${e.target.alt}.gif`);
+    h3.textContent = `Mickey Donovan ${e.target.alt}.`
+    overlay.style.display = "block";
   }
 })
 
@@ -79,10 +88,7 @@ menuResponsive.addEventListener('click' , () => {
 });
 
 overlay.addEventListener('click' , (e) => {
-  e.preventDefault();
-  overlay.style.display = "none";
-});
-
-closeButton.addEventListener('click' , () => {
-  overlay.style.display = "none";
+  if( e.target.parentElement.classList.contains('close-button') || e.target.classList.contains('overlay_containerImage') ){
+    overlay.style.display = "none";
+  }
 });
