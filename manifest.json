@@ -1,0 +1,29 @@
+{
+  "name": "Mickey Donovan",
+  "short_name": "MICKEY D.",
+  "icons": [{
+        "src": "IMAGES/Icons/Icon_128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      }, {
+        "src": "IMAGES/Icons/Icon_192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "IMAGES/Icons/Icon_256.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      },
+      {
+        "src": "IMAGES/Icons/Icon_512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }],
+  "start_url": "/index",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#8138FF",
+  "theme_color": "#8138FF"
+}
